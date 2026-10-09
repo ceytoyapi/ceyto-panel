@@ -9,7 +9,7 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   const url = new URL(e.request.url);
   if (e.request.method !== "GET" || url.origin !== self.location.origin) return;
-  // config.js dahil her şey: önce ağ, olmazsa önbellek (ayar dosyası yüklenemezse panel açılmıyordu)
+  // config.js dahil her şey: önce ağ, ağ yoksa önbellek (ayar dosyası yüklenemezse panel açılmıyordu)
   e.respondWith(
     fetch(e.request)
       .then((res) => {
